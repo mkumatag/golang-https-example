@@ -18,6 +18,10 @@ func main() {
 	cfg := &tls.Config{
 		ClientAuth: tls.RequireAndVerifyClientCert,
 		ClientCAs:  caCertPool,
+        CipherSuites: []uint16{
+            tls.TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,
+            tls.TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,
+        },
 	}
 	srv := &http.Server{
 		Addr:      ":8443",
